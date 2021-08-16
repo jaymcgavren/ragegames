@@ -1,0 +1,73 @@
+----------------------------
+The NES Cleaning Guide
+Version 1.0
+By Jay McGavren
+E-mail: jaymcgavren@home.com
+----------------------------
+
+Disclaimer: I cannot be responsible for damages, monetary or otherwise,
+incurred by the use of these procedures. Anyone who attempts them does
+so solely at their own risk. 
+
+When to attempt this fix 
+It's a good idea to clean all your games and systems regularly as preventive
+maintenance, even if you're not experiencing problems. But if you are
+having trouble, cleaning will clear up the following symptoms: 
+   1.Blank screens 
+   2.Scrambled game graphics 
+   3.Games that crash in the middle of play 
+   4.Flashing screens and power lights 
+
+What you'll need 
+   1.Q-Tips 
+   2.Windex or a solution of 50% isopropyl alcohol, 50% water 
+   3.Phillips-head screwdriver
+      
+What to do 
+To clean a cartridge: 
+   1.Dip a Q-Tip in the cleaning solution and rub firmly across the metal
+     contacts on the dirty cartridge. Repeat until the Q-Tip comes out
+     clean. 
+   2.Use a dry Q-Tip to wipe off the excess solution. 
+   3.Once the game is dry, plug it in to test it. You may want to remove
+     and reinsert the game a couple times more to make sure the
+     contacts are completely clean. 
+   4.If the cartridge is completely clean and it still won't work, your
+     system may need cleaning. See below. 
+
+To clean a system by hand: 
+   1.Remove the screws on the underside of the system. 
+   2.Turn the system over and lift off the plastic top. 
+   3.Remove the screws holding down the metal RF shield and remove
+     the shield. 
+   4.Remove the screws holding down the black plastic cartridge holder.
+     Note how the small plastic tab on the front of the holder slides
+     underneath the motherboard. Slide the holder forward and remove
+     (it's all right if the motherboard bends slightly). 
+   5.Lift the back of the motherboard up and pull off the set of contacts
+     in the black plastic housing. (They will resist a bit but just rock them
+     back and forth to slide them off.) 
+   6.Dip a toothbrush (preferably not yours; use a loved one's) in the
+     cleaning solution and scrub contacts off. 
+   7.Rinse contacts off with water and allow to dry. 
+   8.Lift up the back of the motherboard and slide the contacts back into
+     place. 
+   9.Lift up front the front of the motherboard and slide the cartridge
+     holder onto the contacts. Be sure the tab on the front of the holder
+     clips underneath the motherboard. 
+  10.Reattach the cartridge holder's screws. (The long ones go in the
+     second set of holes from the back.) 
+  11.Plug in the system and test with clean cartridges. (It's perfectly safe
+     to do so with the top off.) 
+  12.If the games still won't work the contacts may be bad.
+     Replacements can be taken from another defective system or
+     purchased from some electronics dealers, however. 
+  13.If the system is working properly, replace the cover (you can leave
+     the RF shield off if you like, I won't tell the FCC) and reattach the
+     screws on the bottom. 
+
+If you have problems or questions about any of the above info feel free to
+E-mail me. I'd also love to hear about your own game repair exploits. You 
+can find guides for simple repairs on other systems on my Web site:
+
+http://www.novia.net/~thespook/
