@@ -1,0 +1,161 @@
+<html>
+<head>
+<title>Rage Games: Zelda Improvement</title>
+</head>
+
+<body background="background.gif" bgcolor="000000" text="ffffff" link="00ff00" vlink="0000ff">
+
+<table width=600 align=center><tr valign=top>
+<td width=505>
+<h1>Zelda Improvement</h1>
+<td rowspan=2 width=95><a href="main.html"><img src="rage.gif" border=0></a>
+<a href="hacks.html"><img src="hacks.gif" border=0 align=bottom></a>
+<tr valign=bottom>
+<td width=505>
+<h4>An Overworld Editor for The Legend of Zelda</h4>
+</table>
+<table width=600 align=center><td>
+
+<p align=center><img src="rule.gif"></p>
+<h2>Background</h2>
+
+<img src="zeldaimprovement1.jpg" align=right>
+
+<p>When I was young and gullible, I was more than willing to attempt 
+all the fake methods my friends described to me for getting the raft 
+to take off from the eastern coast of Hyrule. I loved The Legend of 
+Zelda so much that I was constantly longing for new lands to explore. 
+
+<p>Only now, years later, do I actually have them. _demo_, a member 
+of the Mario Improvement team, has joined forces with EFX to produce 
+Zelda Improvement, a utility that lets users edit the overworld data 
+for a Zelda ROM. Now any emulator user can journey through a 
+virtually limitless number of amateur-designed worlds.
+
+<p>At the time of this writing, ZI is only at version 0.1, and hence 
+is still a little buggy. It may always be a little difficult to 
+use, due to the awkward method Zelda uses to store the overworld 
+map. Unlike many hacking utilities, though, ZI can atually be figured 
+out with the help of the only semi-cryptic documentation. And with 
+patience, even novice users can create worlds that rival Nintendo's 
+original.
+
+<p align=center><img src="rule.gif"></p>
+<h2>How it Works</h2>
+
+<img src="zeldaimprovement2.jpg" align=right>
+
+<p>As anyone who's played Zelda knows, the overworld consists of 
+a grid of individual screens, each 8 rows by 16 columns. In the Zelda 
+ROM, each screen is stored as a set of 16 bytes. (Found in offset 
+h15429-h15BB4, to be specific.) The value from 0-255 in each byte 
+represents one of 256 different preset columns.
+
+<img src="zeldaimprovement3.jpg" align=left>
+
+<p>The hex value 0F, for example, represents a line of bushes at the 
+top and bottom of the screen, with open ground in the center. 0E 
+represents a solid line of bushes. So if you were to replace part of 
+a screen's data with 0F-0F-0F-0F-0E, for example, you would have 
+a small path lined by bushes, leading up to a dead end. There are 
+similar preset columns for lakes, cliffs, cave entrances, even the 
+waterfall. Zelda's entire overworld is constructed from these 
+simplistic building blocks, and you can use these blocks to create 
+your own worlds.
+
+<p>With Zelda Improvement, though, you don't need to worry about hex 
+offsets or what value represents a rock wall. The interface is 
+entirely graphical. Users navigate a map of the overworld, find a 
+screen they want to edit, click on a column, and then flip through 
+all the possible replacements for that column onscreen. With a single 
+keystroke, changes are saved directly to the ROM, ready for playing. 
+It's still a tedious process in this early version, but ZI is a lot 
+easier than using a hex editor.
+
+<p align=center><img src="rule.gif"></p>
+<h2>Designers' Tips</h2>
+
+<p>Of course, your level designs need to be compatible with Zelda's 
+multitude of prgramming quirks. Here are a few tips to ensure players 
+can actually beat the game you've designed:
+
+<ul>
+<li>Entrances must remain intact. If you move a cave entrance to 
+another location on the same screen, users can still get in, but 
+when they exit the cave they will appear where the original entrance 
+was. If you've placed a rock wall there, they'll be stuck.
+<li>Watch out for preset columns with special features. There 
+are two columns with a rock in the center of the screen, and they 
+may look exactly alike, but one of them will allow you to push 
+the rock and reveal an entrance, and the other will not. There 
+are also preset columns with bombable rocks and other features.
+<li>The data for a few screens is duplicated several places in the 
+overworld. If you edit the screen with the faery's spring, for 
+example, those edits will be duplicated in three other places 
+(including the entrance to Level 7, which may become inaccessible).
+<li>Keep users walled in. If you leave an opening along the edge of 
+the map and a player walks through it, the game won't crash, but 
+there will be a weird fadeout and Link will be warped to the center 
+of the screen, possibly getting stuck in the process. The same goes 
+for placing caves on screens where there weren't caves originally.
+<li>Make sure dungeons are accessible! Players not only need to be 
+able to reach dungeons to clear the game, they have to be able to 
+get to them in the right order. If they can't get the ladder from 
+Level 4, for example, they won't be able to clear Level 6. (Of 
+course designing with both Quests 1 and 2 in mind will be 
+difficult.)
+<li>Leave enemies room to breathe. Actually the game is pretty
+"smart" in this respect; Zolas will only appear where there's water
+(and only on screens where they're programmed to), Molblins emerging 
+from the edge of the screen will only appear on an open path, and 
+Leevers look for open ground before emerging. If you make a fancy 
+walled-in design with bushes, though, and an Oktorok appears in the 
+center of the screen, it'll be trapped.
+<li>The game tracks whether the player entered a cave by walking 
+down a north-facing entrance or by entering a west-facing set of 
+steps. When the player leaves the cave, they will either reappear 
+suddenly, or emerge slowly, making the walking-up-steps sound.
+If the preset entrance is in the middle of flat ground and the 
+the user entered a north-facing cave, they will walk up through 
+the ground, which looks wierd.
+</ul>
+
+<p align=center><img src="rule.gif"></p>
+<h2>User-Designed Worlds</h2>
+
+<table width=100% cellpadding=5>
+<tr align=left>
+<td><a href="ganonsrevenge.html">Ganon's Revenge</a></td>
+<td>Rage Games' own edit completely alters the face of Hyrule. 
+The text has also been updated to reflect the new world. This 
+version is much more challenging than the original.</td>
+</table>
+
+<p>Let's see what <b>you</b> can do! If you've done an 
+edit for Zelda, <a href="mailto:jay@mcgavren.com">E-mail me</a>, 
+and we'll make arrangements to get it posted here. Be warned, 
+though, that all edits will be rated, and if it's not a quality 
+job I can be brutal. <i>Grin</i>.
+
+<p align=center><img src="rule.gif"></p>
+<h2>What You'll Need</h2>
+
+<ul>
+<li><a href="files/zi01.zip">Zelda Improvement V0.1</a>.
+<li>Legend of Zelda ROM, U.S. V1.0 (No reminder to hold Reset at Save 
+screen.) <b>NOTE:</b> All ROM requests will be ignored.
+<li>An emulator such as <a href="nestc043.zip">Nesticle</a>, for 
+bugtesting.
+<li><a href="snestl12.zip">SNESTOOL</a> to create an IPS patch (since 
+distributing even an edited ROM would violate copyright law).
+</ul>
+
+</table>
+<table width=600 align=center><td>
+<p align=center><img src="rule.gif"></p>
+<p align=center><a href="main.html"><img src="main.gif" alt="Main" border=0></a><a href="videogames.html"><img src="games.gif" alt="Games" border=0></a><a href="features.html"><img src="info.gif" alt="Info" border=0></a><a href="hacks.html"><img src="hacks.gif" alt="Hacks" border=0></a><a href="links.html"><img src="links.gif" alt="Links" border=0></a><a href="email.html"><img src="email.gif" alt="E-Mail" border=0></a>
+<br><center><font size=1>Copyright &copy; 1997/1998 Jay McGavren. All Rights Reserved.</font></center></p>
+</table>
+
+</body>
+</html>

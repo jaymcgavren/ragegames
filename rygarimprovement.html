@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>Rage Games: Rygar Improvement</title>
+</head>
+
+<body background="background.gif" bgcolor="000000" text="ffffff" link="00ff00" vlink="0000ff">
+
+<table width=600 align=center><tr valign=top>
+<td width=505>
+<h1>Rygar Improvement</h1>
+<td rowspan=2 width=95><a href="main.html"><img src="rage.gif" border=0></a>
+<a href="hacks.html"><img src="hacks.gif" border=0 align=bottom></a>
+<tr valign=bottom>
+<td width=505>
+<h4>A Map Editor for NES Rygar</h4>
+</table>
+<table width=600 align=center><td>
+
+<p align=center><img src="rule.gif"></p>
+
+<img src="g/rygarimprovement1.jpg" align=right width=200 height=153 hspace=10 vspace=10>
+<h2>Background</h2>
+
+<p>Rygar is one of my fondest memories from the early days of 
+the NES. Every once in a while I still get the urge to pull out 
+the cartridge and give it a spin. I can't get enough of the 
+beautiful scenery, and that bizzarre but utterly kickass 
+diskarmer the hero packs.
+
+<img src="g/rygarimprovement2.jpg" align=left width=200 height=153 hspace=10 vspace=10>
+
+<p>It was probably due to my fondness for the game that I was 
+willing to sit down at my hex editor a couple months ago and 
+begin the tedious process of trying to locate the map data.
+A couple days later all I had managed to do was screw up some 
+tiles in the Rolsa Valley. I was unimpressed. I jotted down 
+the addresses of those tiles in the Hacker's Database and let 
+it drop for a month.
+
+<img src="g/rygarimprovement3.jpg" align=right width=200 height=153 hspace=10 vspace=10>
+
+<p>But it kept nagging at the back of my mind, and eventually
+I started poking around again. A day later I had located the 
+Sueru Mountains and had the format completely figured out. 
+Another week and I had my first three custom levels completed.
+But it wasn't much fun plugging away in a hex editor, and I 
+posted a plea for help in making a level editor on the front 
+page of Rage Games.
+
+<p>A few days later I got an e-mail from Chris Hickman, the 
+founder of Archaic Ruins. It turned out he had some C 
+experience, and wanted to help. I gave him the data I'd found 
+and a patch with my current edits. 72 hours after that he had
+a basic editor going. 
+
+<p>After that it was smooth sailing - only 3 complete 
+overhauls to the editor on Chris' part and a week of almost 
+nonstop work on my part grabbing and chopping up screenshots. 
+We are pleased to present to you our level editor, Rygar 
+Improvement, and even more pleased to be done with the 
+project. Phew!
+
+<p align=center><img src="rule.gif"></p>
+<h2>Designers' Tips</h2>
+
+<p>If you've ever used a level editor, you know that games 
+are programmed to be run only with their original levels and may 
+not work as well with anything else. Players can still use and 
+enjoy your new maps, though, if you follow some basic rules:
+
+<ul>
+<li>Doorways should remain accessible. Even if it leads to a 
+hermit who merely gives you a minor hint, it's frustrating 
+for the players if they can see the door but can't reach it.
+<li>Ropes can't be moved. They are a separate feature from 
+the rest of landscape and will hang in the same place even if 
+you move the tree that they hang from (which looks silly).
+<li>Rope ends must be flush with the ground. If the ground is 
+above or below the end of a rope (top or bottom), players can 
+climb it but won't be able to dismount. Also, only the types 
+of ground that allow players to pass through from below (tree
+branches, rounded stone ledges) should be placed at the top 
+of a rope.
+<li>The data for some screens is reused in several places.
+Make sure you know every location a screen is used in and 
+plan accordingly before you edit it.
+<li>Keep solid walls at the edges of a level if possible. If 
+you leave an opening at either end, players will be able to 
+jump off the edge of the screen. The screen will scroll, but 
+you have no way of knowing where it will scroll to.
+<li>Some enemies can only appear on certain types of ground. 
+If the ground is even a square too high or too low, no 
+enemies will appear. Strolling through an entire level with 
+nothing to fight is extremely boring for the player.
+</ul>
+
+<p align=center><img src="rule.gif"></p>
+<h2>User-Designed Worlds</h2>
+
+<table width=100% cellpadding=5>
+<tr align=left>
+<td><a href="files/rygardmo.zip">Demo Level</a></td>
+<td>By Rage Games, intended to show off the editor's capabilities. </td>
+<tr align=left>
+<td>Rygar: Return to Argos</td>
+<td>Rage Games' main edit is still in progress. Watch this site 
+for further updates.</td>
+</table>
+
+<p>Let's see what <b>you</b> can do! If you've done an 
+edit for Rygar, <a href="mailto:jay@mcgavren.com">E-mail me</a>, 
+and we'll make arrangements to get it posted here.
+
+<p align=center><img src="rule.gif"></p>
+<h2>What You'll Need</h2>
+
+<ul>
+<li><a href="files/rimp-100.zip">Rygar Improvement</a>, the level editor.
+<li>Rygar ROM, U.S. V1.0 <b>NOTE:</b> All ROM requests will be ignored.
+<li>An emulator such as <a href="nestc043.zip">Nesticle</a>, for 
+bugtesting.
+<li><a href="snestl12.zip">SNESTOOL</a> to create an IPS patch (since 
+distributing even an edited ROM would violate copyright law).
+</ul>
+
+<p align=center><img src="rule.gif"></p>
+<h2>Related Links</h2>
+
+<table width=100% cellpadding=5>
+<tr align=left>
+<td><a href="http://www.bpwl.com/ar/" target="_top">Archaic Ruins</a></td>
+<td>Visit Rygar Improvement's homepage in AR's hacking utilities section!</td>
+</table>
+
+
+</table>
+<table width=600 align=center><td>
+<p align=center><img src="rule.gif"></p>
+<p align=center><a href="main.html"><img src="main.gif" alt="Main" border=0></a><a href="videogames.html"><img src="games.gif" alt="Games" border=0></a><a href="features.html"><img src="info.gif" alt="Info" border=0></a><a href="hacks.html"><img src="hacks.gif" alt="Hacks" border=0></a><a href="links.html"><img src="links.gif" alt="Links" border=0></a><a href="email.html"><img src="email.gif" alt="E-Mail" border=0></a>
+<br><center><font size=1>Copyright &copy; 1997/1998 Jay McGavren. All Rights Reserved.</font></center></p>
+</table>
+
+</body>
+</html>

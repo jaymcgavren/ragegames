@@ -1,0 +1,283 @@
+<html>
+<head>
+<title>Rage Games: Hacking Save States</title>
+</head>
+
+<body background="background.gif" bgcolor="000000" text="ffffff" link="00ff00" vlink="0000ff">
+
+<table width=600 align=center><tr valign=top>
+<td width=505>
+<h1>Hacking Save States</h1>
+<td rowspan=2 width=95><a href="main.html"><img src="rage.gif" border=0></a>
+<a href="hacks.html"><img src="hacks.gif" border=0 align=bottom></a>
+<tr valign=bottom>
+<td width=505>
+<h4>A Beginning Hacker's Guide</h4>
+</table>
+<table width=600 align=center><td>
+
+<p align=center><img src="rule.gif"></p>
+<h2>How it Works</h2>
+
+<p>Emulators use save states to let the user store their 
+progress in a game. When you load a save state file into 
+an emulator, you can return to your game at the very 
+instant you saved the system state, almost as if you had 
+paused the game.
+
+<p>Emulators achieve this by saving all the essential data 
+that the system is processing at the time into a file. When 
+the file is loaded up again, the virtual game system resumes 
+processing the data as if it had never halted.
+
+<p>Since the file the emulator saves contains all the 
+essential data about your character, you can make changes to 
+it and have those changes reflected in the game when you 
+return to it. Your number of remaining lives, power ups you 
+have available, or (in RPGs) attack power and other stats 
+are all stored in the file, and all can be changed. It's only 
+a matter of finding which parts of the file contain the data.
+
+<p>Here's what you'll need:</p>
+<ul>
+<li>A hex editor and basic understanding of its use
+<li>An emulator
+<li>A game ROM
+</ul>
+
+<p align=center><img src="rule.gif"></p>
+<h2>Hacking Extra Lives</h2>
+
+<p>For our first example we'll be using Super Mario Bros. for 
+our game, Nesticle for the emulator, and Hex Workshop for the 
+editor.
+
+<p>The basic idea is to get two or more state files that are 
+nearly identical except for one change - the variable you 
+want to hack. We'll try something simple for now - getting 
+extra lives in SMB.
+
+<table>
+<tr align=left>
+<td rowspan=2>
+<ul>
+<li>Start up Nesticle and open the SMB ROM.
+<li>Press 0 to select state slot 0.
+<li>Begin a new game, and immediately press F5 to save 
+the game's state (while the black screen with your 
+remaining lives is still showing).
+<li>Press 1 to select state slot 1. (But don't save yet!)
+<li>Now run over to the first Goomba and let him kill you, 
+so that your lives remaining go down to two.
+<li>While the black screen is showing, press F5 to save the 
+game state into slot 1.
+</ul>
+<td>
+<img src="savestatehacks2.jpg" align=right>
+<tr align=left>
+<td>
+<img src="savestatehacks3.jpg" align=right>
+</table>
+
+<p>Two files, mario1.sta and mario1.st1 (depending on the file 
+name of your ROM), should now be saved to your disk. Now:
+
+<ul>
+<li>Run Hex Workshop and open mario1.sta and mario1.st1.
+<li>Under the Tools menu, select Compare. Choose the Hex 
+radio button so that you're comparing hex values and leave 
+all the other options alone.
+<li>Click OK. The hex editor will search both files and 
+find the first byte that is different between the two files. 
+Jot the offset (location) down for later reference.
+<li>Press F6 to find the next byte that has changed, and 
+jot it down also. There shouldn't be more than a few
+dozen that are different. If there are, you may have 
+allowed too much to change from one state file to the 
+other. Did you save both states while the black screen was 
+still showing? Try repeating the process from the start.
+</ul>
+
+<p align=center><img src="savestatehacks1.jpg"></p>
+
+<p>Once you know all the bytes that have changed, click on 
+mario1.sta's window in the hex editor. Find the first byte 
+that has changed and edit it to match the byte at the same 
+offset in mario1.st1. Save the changes to the file.
+
+<p>Now go back into Nesticle and reload the SMB ROM. Press 
+0 to select slot 0 and press F7 to load the edited 
+mario1.sta file. 
+
+<p>Even if you've found the right byte to change, the number 
+of lives remaining won't reflect this just yet. Kill 
+yourself off again so that the black screen is updated, 
+then see what your remaining number of lives says. If 
+the number is still 2 (which it's supposed to be), you 
+haven't found the right byte yet.
+
+<p>Go back and find the next byte that has changed, change it 
+to match the same byte in mario1.st1. Save your edits, 
+load mario1.sta into the emulator, kill yourself off again, 
+and so on.
+
+<p>When you suddenly find that you have only 1 life left 
+instead of 2, stop! You've found the address you need to 
+edit. (For this example, it was offset 275A.)
+
+<img src="savestatehacks4.jpg" align=right>
+
+<p>Now just to be sure you have the right address, edit the 
+same byte to a higher number than before, like 9 or 
+so. Save your work, load it into the emulator, and kill 
+yourself off. The number of lives remaining should read 9.
+
+<p>Congratulations! You've completed your first save state 
+hack. Now you can open any Super Mario Bros. .sta file, 
+edit the byte at offset 275A to any value you'd like, 
+and reload it for extra lives.
+
+<p align=center><img src="rule.gif"></p>
+<h2>Hacking RPG Inventories</h2>
+
+<p>Next we'll try something a little tougher - changing your 
+inventory in Phantasy Star 2. For this experiment you'll 
+need a Phantasy Star 2 ROM, Genecyst, and of course Hex 
+Workshop.
+
+<img src="savestatehacks5.jpg" align=right>
+
+<ul>
+<li>Run Genecyst and load your PS2 ROM. Begin a new game. 
+<li>At your first opportunity, go to the item shop. Buy a 
+Monomate and answer Yes when asked if you need anything else.
+<li>Once you're back to the shop's main items menu, save 
+the game state to slot 0.
+<li>Buy another Monomate and again say Yes, you do need 
+something else.
+<li>Back at the shop's main items menu, save the game to 
+slot 1.
+</ul>
+
+<p>The files pstar2.gs0 and pstar2.gs1 should now be saved to 
+your disk. (Again, the filenames depend on your ROM's 
+filename.) Open both in Hex Workshop.
+
+<p>This time we're not going to bother writing down all the 
+hex offsets. Now that you have some clue what you're doing, 
+we'll try to save a little time by making a logical guess 
+as to what may have changed.
+
+<p>RPG items are usually stored in a game save as single bytes. 
+A potion might have the value 15, a sword the value B7. If 
+there is no item in a particular spot in your inventory, 
+it's usually represented by a 00.
+
+<p>So in pstar2.gs0, you have a slot in your inventory that is 
+empty, but in pstar2.gs1, that same slot is taken up by a 
+Monomate. You can reasonably guess that in pstar.gs0 the byte 
+that represents that inventory slot is 00, but in pstar2.gs1, 
+that byte is some value higher than 00.
+
+<p>Run a comparison between pstar2.gs0 and pstar2.gs1 in Hex 
+Workshop. Write down only the offsets that have changed 
+from 00 in pstar2.gs0 to a value higher than 00 in pstar2.gs1.
+There will probably only be one or two.</p>
+
+
+<table width=100%>
+<td><p>Now change these offsets in pstar2.gs0 to match their twin 
+in pstar2.gs1, one at a time. You should test your changes 
+each time by loading pstar2.gs0 into Genecyst, leaving the 
+shop, and checking your items menu. If you suddenly have a 
+second Monomate, you've found the offset you need to change.
+(For me it was offset E4A4. If you were working with a 
+different inventory slot it might be different for you, but 
+it should still be a nearby offset.)</p></td>
+<td><img src="savestatehacks6.jpg" align=right></td>
+</table>
+
+<table width=100%>
+<td><p>Now comes the fun part. You can set the byte at the offset 
+you've discovered to any value you want, and you'll get a 
+different item for each. Try setting it to 12, load it and 
+test it. Your Monomate will turn into a Dimate. If you 
+keep changing, loading, and testing values, you'll find 
+the following:</p></td>
+<td><img src="savestatehacks7.jpg" align=right></td>
+</table>
+
+<br clear=all>
+
+<center>
+<table width=300>
+<tr align=left><td>11</td><td>Monomate</td>
+<td>17</td><td>Headgear</td>
+<tr align=left><td>12</td><td>Dimate</td>
+<td>18</td><td>Ribbon</td>
+<tr align=left><td>13</td><td>Trimate</td>
+<td>19</td><td>FiberGear</td>
+<tr align=left><td>14</td><td>Antidote</td>
+<td>1A</td><td>Sil Ribbon</td>
+<tr align=left><td>15</td><td>Star Mist</td>
+<td>1B</td><td>Sil Crown</td>
+<tr align=left><td>16</td><td>Moon Dew</td>
+<td>1C</td><td>TitaniGear</td>
+</table>
+</center>
+
+<p>If you're familiar with Phantasy Star 2, you've probably 
+noticed that the items seem to be getting more and more 
+valuable as the hex value increases. If you keep raising 
+the value, you could eventually wind up with the best 
+weapons and armor in the game. In some games (like Final 
+Fantasy II), it's possible to use this technique to find 
+items that were removed from the U.S. version and aren't 
+accessible by normal means. Once you've hacked an item 
+into the save state, it can be equipped and traded like 
+any other item, too.
+
+<p>Next experiment... Go back into the shop and buy all the 
+Monomates you and Nei can carry. Save the game state to 
+slot 0 and open pstar2.gs0 in Hex Workshop. (If you 
+already had it open, you need to close the file and 
+open it again or the changes won't appear. Go to hex 
+offset E4A4. Notice anything different? 
+
+<p>The bytes surrounding offset E4A4 are all filled with the 
+value 11. You can also see a second string of 11's 
+starting at E4E4. If you'll recall from earlier, 11 is 
+the value for a Monomate. These are all the Monomates you 
+just bought and saved. The second string of 11's is Nei's 
+inventory.
+
+<p>Go to all the bytes that just changed to 11, and change 
+them to 1C. (The value for a TitaniGear.) Save the file, 
+and load it in Genecyst. Your inventory should now be 
+filled with Titanigears. You can change any of these 
+bytes you just discovered to any value you want, and get 
+any item you want.
+
+<p>These are just a couple examples of your newfound abilities. 
+With a little creativity, you can do anything. Apply this 
+technique to Metroid, and you can use it to get special 
+items right at the start of the game. Try it on Final 
+Fantasy, and you can set any character's maximum HP to any 
+value you want. It'll work on save states for SNES 
+or in fact any system whose emulator supports them.
+
+<p>So what're you waiting for? Go test your skills on your 
+favorite game. If you find any useful offsets, be sure to
+E-mail me at
+<a href="jay@mcgavren.com">jay@mcgavren.com</a>. 
+Good luck and happy hacking!
+
+</table>
+<table width=600 align=center><td>
+<p align=center><img src="rule.gif"></p>
+<p align=center><a href="main.html"><img src="main.gif" alt="Main" border=0></a><a href="videogames.html"><img src="games.gif" alt="Games" border=0></a><a href="features.html"><img src="info.gif" alt="Info" border=0></a><a href="hacks.html"><img src="hacks.gif" alt="Hacks" border=0></a><a href="links.html"><img src="links.gif" alt="Links" border=0></a><a href="email.html"><img src="email.gif" alt="E-Mail" border=0></a>
+<br><center><font size=1>Copyright &copy; 1997/1998 Jay McGavren. All Rights Reserved.</font></center></p>
+</table>
+
+</body>
+</html>
